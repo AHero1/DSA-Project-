@@ -4,7 +4,7 @@ import random
 import math
 import heapq
 
-# QuickSort with Random Pivot (from your C++ code)
+# QuickSort with Random Pivot
 def partition(locations, start, end):
     pivot_idx = random.randint(start, end)
     locations[pivot_idx], locations[end] = locations[end], locations[pivot_idx]
