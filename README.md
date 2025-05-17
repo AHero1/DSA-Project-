@@ -29,4 +29,39 @@ Actual path taken (like 0 -> 2 -> 4 -> 5)
 (Use priority queue + min-heap for faster O(E + log V) in advanced versions)
 min-heap for faster O(E + log V) in advanced versions)
 
-![Uploading Screenshot 2025-05-17 at 2.44.41 AM.png…]()
+<img width="488" alt="Screenshot 2025-05-17 at 2 44 41 AM" src="https://github.com/user-attachments/assets/a1a386fd-e964-49be-8aa4-4e819750638c" />
+
+# GUI
+
+<img width="1184" alt="Screenshot 2025-05-17 at 9 02 48 AM" src="https://github.com/user-attachments/assets/3f9d5224-bbb6-4fa1-9bfd-f102146aa900" />
+
+## Using OpenStreetMap (OSM) Data
+
+To generate realistic road maps, we use OpenStreetMap (OSM) `.osm` files.
+
+### Step 1: Export OSM Map
+We selected and downloaded a small area (e.g., campus, neighborhood).
+<img width="1361" alt="Screenshot 2025-05-17 at 9 11 54 AM" src="https://github.com/user-attachments/assets/de94a332-6979-434c-a6b8-6a95350aef97" />
+
+- Zoom into the region
+- Export
+- Save the file as `map.osm`
+
+### Step 2: Parsing OSM File
+
+The `loadOSM()` function in our `Graph` class:
+- Parses OSM XML to extract `<node>` and `<way>` elements.
+- Builds a graph:
+  - Nodes = Road intersections (with lat/lon)
+  - Edges = Roads between them (weighted by distance)
+
+### Step 3: Coordinate Mapping
+
+To visualize or calculate distances, the latitude/longitude of nodes are converted into:
+- Cartesian coordinates (x, y) for GUI
+- Real-world distance (e.g., using Haversine formula)
+- The Haversine formula is used to calculate the great-circle distance between two points on a sphere, given their longitudes and latitudes. It essentially finds the shortest distance between two points on the surface of a sphere, like the Earth, ignoring any terrain variations. 
+
+# GUI with Map Integration 
+![WhatsApp Image 2025-05-17 at 01 19 45](https://github.com/user-attachments/assets/7db9c6c6-6983-4ce5-a516-612724f9da47)
+
